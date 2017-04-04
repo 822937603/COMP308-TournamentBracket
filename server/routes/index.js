@@ -21,4 +21,16 @@ router.get('/',requireAuth,  (req, res, next) => {
     username: req.user ? req.user.username : '' });
 });
 
+/* GET bracket page. */
+router.get('/bracket',requireAuth,  (req, res, next) => {
+  res.render('content/bracket', { 
+    title: 'Tournament Bracket',
+    username: req.user ? req.user.username : '' });
+});
+
+/* POST bracket page */
+router.post('/bracket',requireAuth,  (req, res, next) => {
+   res.redirect('content/bracket'); // redirect to homepage
+});
+
 module.exports = router;
