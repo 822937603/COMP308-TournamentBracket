@@ -78,3 +78,9 @@ a {
 .clear {
   clear: both;
 }
+.squareSingle{
+  width:100%;
+  background-color: #e26414;
+  font-size: 17px;
+
+}
