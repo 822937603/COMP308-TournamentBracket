@@ -1,3 +1,3 @@
 module.exports = {
-    "URI" : "mongodb://localhost/games"
+    "URI" : "mongodb://localhost/tourney"
 };

@@ -13,9 +13,10 @@
 <body>
     <div class="panel">
         <div class="panel-heading">
-        <img src="/assets/images/logo.jpg" alt="Jim{}Logo"><br>
-        "Where dreams come true"
+             <img src="/assets/images/logo.jpg" alt="Jim{}Logo"><br>
+                "Where dreams come true"
         </div>
+        
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
@@ -30,6 +31,26 @@
                     <% } else { %>
                         <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
                     <% } %> 
+
+                    <% if(username) { %>
+                        <% if(title == "Tourney") { %>
+                        <li class="active"><a href="/bracket/tourney"><i class="fa fa-gamepad fa-lg">
+                        </i> Tournament </a></li>
+                        <% } else { %>
+                        <li><a href="/bracket/tourney"><i class="fa fa-gamepad fa-lg">
+                        </i> Tournament </a></li>
+                        <% } %>
+                    <% } %>
+
+                    <% if(username) { %>
+                        <% if(title == "Bracket") { %>
+                        <li class="active"><a href="/bracket/bracket"><i class="fa fa-gamepad fa-lg">
+                        </i> Bracket </a></li>
+                        <% } else { %>
+                        <li><a href="/bracket/bracket"><i class="fa fa-gamepad fa-lg">
+                        </i> Bracket </a></li>
+                        <% } %>
+                    <% } %>                    
                 </ul>
             </div>
         </nav>
