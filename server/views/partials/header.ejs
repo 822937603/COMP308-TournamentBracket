@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="./assets/images/Bandet.png">
+    <title>Tournament Bracket <%= title %></title>
+    <link rel="stylesheet" href="/scripts/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/scripts/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel='stylesheet' href="/content/style.css">
+</head>
+<body>
+    <div class="panel">
+        <div class="panel-heading">
+             <img src="/assets/images/logo.jpg" alt="Jim{}Logo"><br>
+                "Where dreams come true"
+        </div>
+        
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li 
+                        <% if(title == "Home") { %> class="active" <% } %>
+                    ><a href="/">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">    
+                    <% if(username) { %>
+                        <li class="navbar-text"> Welcome, <%= username %></li>
+                        <li><a href="/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+                    <% } else { %>
+                        <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+                    <% } %> 
+
+                    <% if(username) { %>
+                        <% if(title == "Tourney") { %>
+                        <li class="active"><a href="/bracket/tourney"><i class="fa fa-gamepad fa-lg">
+                        </i> Tournament </a></li>
+                        <% } else { %>
+                        <li><a href="/bracket/tourney"><i class="fa fa-gamepad fa-lg">
+                        </i> Tournament </a></li>
+                        <% } %>
+                    <% } %>
+
+                    <% if(username) { %>
+                        <% if(title == "Bracket") { %>
+                        <li class="active"><a href="/bracket/bracket"><i class="fa fa-gamepad fa-lg">
+                        </i> Bracket </a></li>
+                        <% } else { %>
+                        <li><a href="/bracket/bracket"><i class="fa fa-gamepad fa-lg">
+                        </i> Bracket </a></li>
+                        <% } %>
+                    <% } %>                    
+                </ul>
+            </div>
+        </nav>

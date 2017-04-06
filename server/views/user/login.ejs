@@ -1,0 +1,36 @@
+<% include ../partials/header.ejs %>
+<div class="panel-body">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <% if (messages.length > 0) { %>
+        <div class="alert alert-danger"><%= messages %></div>
+      <% } %>
+      <div class="container">
+      <div class="row">
+            
+        <div class="col-md-offset-2 col-md-4">
+        
+        <div class="jumbotron">
+           <h2><center>Login</center></h2>
+           <hr>
+           <form method="post">
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" name="username" placeholder="Username" required autofocus/>
+                 </fieldset>
+                 <fieldset class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required/>
+                    <br> Don't have an account? 
+                    <a href="/user/register">Register a free account</a>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="submit" class="btn squareSingle" value="Log In"/>
+               </fieldset>
+            </form>
+         </div>
+      </div>
+      </div>
+  </div>
+  </div>
+</div>
+<% include ../partials/footer.ejs %> 
