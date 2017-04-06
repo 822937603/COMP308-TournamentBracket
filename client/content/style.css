@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("/../assets/images/nebula.jpg");
+  background-color:#150000;
 }
 
 a {
@@ -83,4 +83,10 @@ a {
   background-color: #e26414;
   font-size: 17px;
 
+}
+.btnSign{
+  background-color: #e26414;
+}
+.btnCancel{
+  background-color: darkslategrey;
 }
