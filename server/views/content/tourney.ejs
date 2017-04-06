@@ -1,5 +1,4 @@
  <% include ../partials/header.ejs %>
-        
         <div class="panel-body">
           <div class="col-md-2"></div>
           <div class="col-md-8">
@@ -25,20 +24,18 @@
           
 
 <!-- Enter 4 Player Start -->
-<form method = "post" class = "form" style="display:none" id="fourManForm">
+<form style="display:none" id="fourManForm">
   <h4>ENTER PLAYERS</h4>
   <div class="well carousel-search hidden-phone">
     <div class="btn-group">
       <ul>
-        <li><a href="#"></a>ENTER PLAYER 1: <input type="text" name="player1" placeholder="player1"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 2: <input type="text" name="player2" placeholder="player2"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 3: <input type="text" name="player3" placeholder="player3"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 4: <input type="text" name="player4" placeholder="player4"></input></li>
+        <li><a href="#"></a>ENTER PLAYER 1: <input type="text" id="player1" placeholder="player1"></input></li>
+        <li><a href="#"></a>ENTER PLAYER 2: <input type="text" id="player2" placeholder="player2"></input></li>
+        <li><a href="#"></a>ENTER PLAYER 3: <input type="text" id="player3" placeholder="player3"></input></li>
+        <li><a href="#"></a>ENTER PLAYER 4: <input type="text" id="player4" placeholder="player4"></input></li>
       </ul>
       </br>
-              <button id="send" type="submit">Send</button>
-              <a href="/bracket/bracket" class="btn btn-primary"><i class="fa fa-check-square-o"</i> Submit </a>
-      <!--<button class="btn btn-primary"><i class="fa fa-check-square-o" onclick = "location.href='/bracket/bracket'"></i> Submit</button>-->
+              <a href="/bracket/bracket" class="btn btn-primary"> Submit </a>
               <a href="/" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
 
   </div>
@@ -62,16 +59,15 @@
         <li><a href="#"></a>ENTER PLAYER 8: <input type="text" id="player8" placeholder="player8"></input></li>
       </ul>
       </br>
-      <button type="submit" id="btneight" class="btn btn-primary" onclick="location.href='/bracket'">START TOURNAMENT</button>
+      <a href="/bracket/bracket" class="btn btn-primary"> Submit </a>
+              <a href="/" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
 
   </div>
   </div>
 </form>
 <!-- Enter 8 Player End -->
-
 </div>
 </div>
-
 
 <script>
  $(".dropdown-menu li a").click(function(){
@@ -80,10 +76,8 @@
   //badge element visible
   if(selText == "4 MAN TOURNAMENT")
   {
-
     let y = document.getElementById('eightManForm');
       y.style.display = 'none';
-
   let x = document.getElementById('fourManForm');
     if (x.style.display === 'none') {
         x.style.display = 'inline';
@@ -95,7 +89,6 @@
   {
     let z = document.getElementById('fourManForm');
       z.style.display = 'none';
-
   let y = document.getElementById('eightManForm');
     if (y.style.display === 'none') {
         y.style.display = 'inline';
@@ -104,7 +97,6 @@
     }
   }
 });
-
 </script>
 
 <% include ../partials/footer.ejs %> 
