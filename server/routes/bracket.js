@@ -3,7 +3,7 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 let Tourney4 = require('../models/tourney4');
-let Tournament4  = Tourney4.Tournament4;
+//let Tournament4  = Tourney4.Tournament4;
 
 //check if authenticated
 function requireAuth(req, res, next) {
@@ -20,8 +20,8 @@ router.get('/tourney',requireAuth,  (req, res, next) => {
     username: req.user ? req.user.username : '' });
 });
 
-/* POST Tourney Page */
-router.post('/add', requireAuth, (req,res,next) => {
+/* POST Tourney Page - Process the tourney page */
+router.post('/tourney', requireAuth, (req,res,next) => {
     let newTourney = Tourney4({
        "player1": req.body.player1,
        "player2": req.body.player2,

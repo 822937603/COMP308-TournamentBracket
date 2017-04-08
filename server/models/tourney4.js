@@ -3,33 +3,40 @@ let Schema = mongoose.Schema;
 
 // create a model class
 let Tourney4Schema = new Schema({
-    player1: {
-        type: String,
-        default: '',
-        trim: true,
-        required: 'player1 name is required'
-    },
-    player2: {
-        type: String,
-        default: '',
-        trim: true,
-        required: 'player2 name is required' 
-    },
-    player3: {
-        type: String,
-        default: '',
-        trim: true,
-        required: 'player3 name is required' 
-    },
-    player4: {
-        type: String,
-        default: '',
-        trim: true,
-        required: 'player4 name is required' 
-    }
+    rounds: [{
+        round1: [{
+            pair1: [
+                {
+                    player1: String, Wins: 0, Losses: 0
+                },
+                {
+                    player2: String, Wins: 0, Losses: 0
+                }
+                ],
+             pair2: [
+                {
+                    player3: String, Wins: 0, Losses: 0
+                },
+                {
+                    player4: String, Wins: 0, Losses: 0
+                }
+                ]
+        }],
+        round2: [{
+            pair1: [
+                {
+                    player1: String, Wins: 0, Losses: 0
+                },
+                {
+                    player2: String, Wins: 0, Losses: 0
+                }
+            ]
+        }],
+        winner1: String, winner2: String, loser1: String
+    }]
 },
 {
     collection: "tourney"
 });
 
-exports.Tourney4 = mongoose.model('Tourney4', Tourney4Schema);
+module.exports = mongoose.model('Tourney4', Tourney4Schema);
