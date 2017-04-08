@@ -39,10 +39,12 @@ router.post('/tourney', requireAuth, (req,res,next) => {
 });
 
 /* GET bracket page. */
+
 router.get('/bracket',requireAuth,  (req, res, next) => {
   res.render('content/bracket', { 
     title: 'Tournament Bracket',
     username: req.user ? req.user.username : '' });
+
 });
 
 /* POST bracket page */
