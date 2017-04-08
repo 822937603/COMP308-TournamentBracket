@@ -1,0 +1,79 @@
+{
+    "rounds": [{
+        "round1": [{
+            "pair1": [
+                {
+                    "player1":"Tom", "Wins": 0, "Losses": 0
+                },
+                {
+                    "player2":"Mike", "Wins": 0, "Losses": 0
+                }
+                ],
+             "pair2": [
+                {
+                    "player3":"Tom", "Wins": 0, "Losses": 0
+                },
+                {
+                    "player4":"Mike", "Wins": 0, "Losses": 0
+                }
+                ],
+             "pair3": [
+                {
+                    "player4":"Tom", "Wins": 0, "Losses": 0
+                },
+                {
+                    "player5":"Mike", "Wins": 0, "Losses": 0
+                }
+                ],
+             "pair4": [
+                {
+                    "player6":"Tom", "Wins": 0, "Losses": 0
+                },
+                {
+                    "player7":"Mike", "Wins": 0, "Losses": 0
+                }
+                ]
+        }],
+        "round2": [{
+            "pair1": [
+                {
+                    "player1":"Tom", "Wins": 0, "Losses": 0
+                },
+                {
+                    "player2":"Mike", "Wins": 0, "Losses": 0
+                }
+                ],
+             "pair2": [
+                {
+                    "player3":"Tom", "Wins": 0, "Losses": 0
+                },
+                {
+                    "player4":"Mike", "Wins": 0, "Losses": 0
+                }
+                ]
+        }],
+        "round3": [{
+            "pair1": [
+                {
+                    "player1":"winner1", "Wins": 0, "Losses": 0
+                },
+                {
+                    "player2":"winner1", "Wins": 0, "Losses": 0
+                }
+                ],
+            "pair2": [
+                {
+                    "player3":"loser 1", "Wins": 0, "Losses": 0
+                },
+                {
+                    "player4":"loser 2", "Wins": 0, "Losses": 0
+                }
+                ]
+        }],
+            
+            "winner1": "winner1" , "winner2": "winner2", "loser1": "loser1"
+    
+    }]
+
+
+}
