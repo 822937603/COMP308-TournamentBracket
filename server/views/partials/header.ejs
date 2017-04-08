@@ -25,12 +25,6 @@
                     ><a href="/">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">    
-                    <% if(username) { %>
-                        <li class="navbar-text"> Welcome, <%= username %></li>
-                        <li><a href="/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
-                    <% } else { %>
-                        <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
-                    <% } %> 
 
                     <% if(username) { %>
                         <% if(title == "Tourney") { %>
@@ -50,7 +44,13 @@
                         <li><a href="/bracket/bracket"><i class="fa fa-gamepad fa-lg">
                         </i> Bracket </a></li>
                         <% } %>
-                    <% } %>                    
+                    <% } %>     
+                    <% if(username) { %>
+                        <li class="navbar-text"> Welcome, <%= username %></li>
+                        <li><a href="/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+                    <% } else { %>
+                        <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+                    <% } %>                
                 </ul>
             </div>
         </nav>
