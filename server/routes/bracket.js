@@ -81,7 +81,8 @@ router.post('/tourney', requireAuth, (req, res, next) => {
 router.get('/bracket', requireAuth, (req, res, next) => {
     res.render('content/bracket', {
         title: 'Tournament Bracket',
-        username: req.user ? req.user.username : ''
+        username: req.user ? req.user.username : '',
+        newTourney: newTourney
     });
 });
 
