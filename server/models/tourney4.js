@@ -2,38 +2,23 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 // create a model class
+let Tourney4PairSchema = new Schema ({
+    playerName: String,
+    Wins: Number,
+    Losses: Number
+})
 let Tourney4Schema = new Schema({
     rounds: [{
         round1: [{
-            pair1: [
-                {
-                    player1: String, Wins: 0, Losses: 0
-                },
-                {
-                    player2: String, Wins: 0, Losses: 0
-                }
-                ],
-             pair2: [
-                {
-                    player3: String, Wins: 0, Losses: 0
-                },
-                {
-                    player4: String, Wins: 0, Losses: 0
-                }
-                ]
+            pair1: [Tourney4PairSchema],
+            pair2: [Tourney4PairSchema]
         }],
         round2: [{
-            pair1: [
-                {
-                    player1: String, Wins: 0, Losses: 0
-                },
-                {
-                    player2: String, Wins: 0, Losses: 0
-                }
-            ]
+            pair3: [Tourney4PairSchema]
         }],
         winner1: String, winner2: String, loser1: String
-    }]
+    }],
+    userID: String
 },
 {
     collection: "tourney"
