@@ -3,29 +3,29 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
 
-            <div class="round r-of-4">
-                <div class="bracket-game">
-                    <div class="player top win">
-                        Snute
+            <div class="round r-of-4" name = "round1">
+                <div class="bracket-game" name = "pair1">
+                    <div class="player top win" name = "player1">
+                         Snute
                         <div class="score">
                             3
                         </div>
                     </div>
-                    <div class="player bot loss">
+                    <div class="player bot loss" name = "player2">
                         TLO
                         <div class="score">
                             1
                         </div>
                     </div>
                 </div>
-                <div class="bracket-game cont">
-                    <div class="player top loss">
+                <div class="bracket-game cont" name= "pair2">
+                    <div class="player top loss" name = "player3">
                         ToD
                         <div class="score">
                             0
                         </div>
                     </div>
-                    <div class="player bot win">
+                    <div class="player bot win" name = "player4">
                         MC
                         <div class="score">
                             3
@@ -43,7 +43,7 @@
                 <div class="next-line"></div>
                 <div class="clear"></div>
             </div>
-            <div class="round r-of-2">
+            <div class="round r-of-2" name = "round2">
                 <div class="bracket-game">
                     <div class="player top loss">
                         Snute
@@ -62,10 +62,4 @@
 
         </div>
     </div>
-
-    <audio autoplay loop>
-  <source src="/assets/audio/dance.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
     <% include ../partials/footer.ejs %>
