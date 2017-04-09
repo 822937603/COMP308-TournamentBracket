@@ -6,7 +6,8 @@ body {
 
 a {
   color: #00B7FF;
-}
+} 
+/*
 .round {
   float: left;
 }
@@ -15,15 +16,19 @@ a {
 }
 .round.r-of-2 {
   margin-top: 25px;
+  
 }
 .bracket-game {
   max-width: 125px;
   margin: 10px 0;
+  
 }
 .player {
   min-width: 100px;
   border: 1px solid #AAA;
   padding-left: 10px;
+    height: 100px;
+  width: 100px;
 }
 .player.top {
   border-radius: 3px 3px 0 0;
@@ -83,4 +88,4 @@ a {
   background-color: #e26414;
   font-size: 17px;
 
-}
+}*/
