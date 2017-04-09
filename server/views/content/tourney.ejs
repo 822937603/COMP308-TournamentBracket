@@ -46,23 +46,23 @@
 <!-- Enter 4 Player End -->
 
 <!-- Enter 8 Player Start -->
-<form style="display:none" id="eightManForm">
+<form method = "post" class = "form" style="display:none" id="eightManForm">
   <h4>ENTER PLAYERS</h4>
   <div class="well carousel-search hidden-phone">
     <div class="btn-group">
       <ul>
-        <li><a href="#"></a>ENTER PLAYER 1: <input type="text" id="player1" placeholder="player1"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 2: <input type="text" id="player2" placeholder="player2"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 3: <input type="text" id="player3" placeholder="player3"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 4: <input type="text" id="player4" placeholder="player4"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 5: <input type="text" id="player5" placeholder="player5"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 6: <input type="text" id="player6" placeholder="player6"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 7: <input type="text" id="player7" placeholder="player7"></input></li>
-        <li><a href="#"></a>ENTER PLAYER 8: <input type="text" id="player8" placeholder="player8"></input></li>
+        <li><a href="#"></a>ENTER PLAYER 1: <input type="text" class = "form-control" id="player1" placeholder="player1" name = "player1" required></input></li>
+        <li><a href="#"></a>ENTER PLAYER 2: <input type="text" class = "form-control" id="player2" placeholder="player2" name = "player2" required></input></li>
+        <li><a href="#"></a>ENTER PLAYER 3: <input type="text" class = "form-control" id="player3" placeholder="player3" name = "player3" required></input></li>
+        <li><a href="#"></a>ENTER PLAYER 4: <input type="text" class = "form-control" id="player4" placeholder="player4" name = "player4" required></input></li>
+        <li><a href="#"></a>ENTER PLAYER 5: <input type="text" class = "form-control" id="player5" placeholder="player5" name = "player5" required></input></li>
+        <li><a href="#"></a>ENTER PLAYER 6: <input type="text" class = "form-control" id="player6" placeholder="player6" name = "player6" required></input></li>
+        <li><a href="#"></a>ENTER PLAYER 7: <input type="text" class = "form-control" id="player7" placeholder="player7" name = "player7" required></input></li>
+        <li><a href="#"></a>ENTER PLAYER 8: <input type="text" class = "form-control" id="player8" placeholder="player8" name = "player8" required></input></li>
       </ul>
       </br>
-      <button type="submit" id="btneight" class="btn btn-primary" onclick="location.href='/bracket'">START TOURNAMENT</button>
-
+            <button type="submit" class="btn btn-primary"> Submit </button>
+            <a href="/" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
   </div>
   </div>
 </form>
