@@ -29,6 +29,7 @@ db.once('open', () => {
 let index = require('./routes/index');
 let user = require('./routes/user');
 let bracket = require('./routes/bracket');
+let bracket8 = require('./routes/bracket8');
 
 let app = express();
 
@@ -59,6 +60,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/user', user);
 app.use('/bracket', bracket);
+app.use('/bracket8', bracket8);
 
 // passport user config
 let UserModel = require('./models/users');

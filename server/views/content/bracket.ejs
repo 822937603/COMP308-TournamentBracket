@@ -9,25 +9,19 @@
                  <form method = "post">
                     <div class="player top win" name = "player1">
                          <%= Tourney.rounds[0].round1[0].pair1[0].playerName %>
-                        <div class="score">
-                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[0].playerName" style= "visibility: hidden">
-                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden">
-                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden">
-                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden">
+                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[0].playerName" style= "visibility: hidden" size ="1">
+                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden" size ="1">
+                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden" size ="1">
+                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">
                             <button type="submit" class="btn btn-primary"> > </button>
-                        </div>
                     </div>
                     <div class="player bot loss" name = "player2">
                         <%= Tourney.rounds[0].round1[0].pair1[1].playerName %>
-                        <div class="score">
-                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden">
-                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden">
-                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden">
-                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden">
+                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden" size ="1">
+                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden" size ="1">
+                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden" size ="1">
+                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">
                             <button type="submit" class="btn btn-primary"> > </button>
-                            <%= Tourney._id %>
-                            <%= Tourney.rounds[0].round1[0].pair1[0]._id %>
-                        </div>
                     </div>
                 </div>
                 </form>
@@ -35,15 +29,19 @@
                 <div class="bracket-game cont" name= "pair2">
                     <div class="player top loss" name = "player3">
                         <%= Tourney.rounds[0].round1[0].pair2[0].playerName %>
-                        <div class="score">
-                            0
-                        </div>
+                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden" size ="1">
+                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden" size ="1">
+                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden" size ="1">
+                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">
+                            <button type="submit" class="btn btn-primary"> > </button>
                     </div>
                     <div class="player bot win" name = "player4">
                         <%= Tourney.rounds[0].round1[0].pair2[1].playerName %>
-                        <div class="score">
-                            3
-                        </div>
+                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden" size ="1">
+                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden" size ="1">
+                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden" size ="1">
+                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">
+                            <button type="submit" class="btn btn-primary"> > </button>
                     </div>
                 </div>
             </div>

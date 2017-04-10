@@ -30,4 +30,4 @@ let Tourney8Schema = new Schema({
     collection: "tourney8"
 });
 
-module.exports = mongoose.model('Tourney8', Tourney4Schema);
+module.exports = mongoose.model('Tourney8', Tourney8Schema);
