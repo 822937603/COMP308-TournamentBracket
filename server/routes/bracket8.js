@@ -13,7 +13,7 @@ function requireAuth(req, res, next) {
 }
 
 router.get('/', (req, res, next) => {
-    res.render('content/bracket');
+    res.render('content/bracket8');
 })
 
 /* GET tourney page. */
