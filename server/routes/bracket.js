@@ -78,7 +78,7 @@ router.post('/tourney', requireAuth, (req, res, next) => {
         if (err) {
             res.end(err);
         } else {
-            res.redirect('/bracket');
+            res.redirect('/bracket/:id');
         }
     })
 });
