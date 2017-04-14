@@ -1,3 +1,3 @@
 # COMP308-TournamentBracket
 
-www.p308-tournamentbracket.herokuapp.com
+www.308-tournamentbracket.herokuapp.com
