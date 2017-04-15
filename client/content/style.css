@@ -19,9 +19,29 @@ a {
   margin-left: 0px; 
   
 }
+.round.r8{
+  margin-top: 100px;
+  margin-left: 0px;
+}
+.round.r3{
+  margin-top: 100px;
+  margin-left: 0px;
+}
 .bracket-game {
   max-width: 125px;
   margin: 10px 0;
+  
+}
+.bracket-game6 {
+  max-width: 125px;
+  margin: 10px 0;
+  margin-top: 220px;
+  
+}
+.bracket-game8 {
+  max-width: 125px;
+  margin: 10px 0;
+  margin-top: 230px;
   
 }
 .player {
@@ -54,6 +74,60 @@ a {
 .connectors {
   float: left;
   min-width: 35px;
+}
+.connectors.r-of-3 .top-line {
+  position: relative;
+  bottom: 208px;
+  right: 95px;
+  width: 40px;
+  border: 1px solid #AAA;
+}
+.connectors.r-of-3 .bottom-line {
+  position: relative;
+  top: 1px;
+  right: 95px;
+  width: 40px;
+  border: 1px solid #AAA;
+}
+.connectors.r-of-3 .vert-line {
+  position: relative;
+  top: -210px;
+  left: -145px;
+  height: 210px;
+  border-right: 2px solid #AAA;
+}
+.connectors.r-of-3 .next-line {
+  position: relative;
+  top: -325px;
+  left: -55px;
+  width: 90px;
+  border: 1px solid #AAA;
+}
+.connectors.r-of-4 .top-line {
+  position: relative;
+  top: 210px;
+  width: 40px;
+  border: 1px solid #AAA;
+}
+.connectors.r-of-4 .bottom-line {
+  position: relative;
+  top: 630px;
+  width: 40px;
+  border: 1px solid #AAA;
+}
+.connectors.r-of-4 .vert-line {
+  position: relative;
+  top: 205px;
+  left: -50px;
+  height: 425px;
+  border-right: 2px solid #AAA;
+}
+.connectors.r-of-4 .next-line {
+  position: relative;
+  top: 1px;
+  left: 40px;
+  width: 90px;
+  border: 1px solid #AAA;
 }
 .connectors.r-of-2 .top-line {
   position: relative;
