@@ -13,7 +13,11 @@ function requireAuth(req, res, next) {
 }
 
 router.get('/', (req, res, next) => {
-    res.render('content/bracket8');
+    res.render('content/bracket8', {
+        title: 'Tournamen Bracket',
+        username: req.user ? req.user.username : '',
+        Tourney: newTourney   
+    });
 })
 
 /* GET tourney page. */
@@ -24,8 +28,16 @@ router.get('/tourney', requireAuth, (req, res, next) => {
     });
 });
 
+/* GET tourney page. */
+router.get('/eightman', requireAuth, (req, res, next) => {
+    res.render('content/eightman', {
+        title: '8Man Tourney',
+        username: req.user ? req.user.username : ''
+    });
+});
+
 /* POST Tourney Page - Process the tourney page */
-router.post('/tourney', requireAuth, (req, res, next) => {
+router.post('/eightman', requireAuth, (req, res, next) => {
     let object = {
         'rounds': [{
             'round1': [{
@@ -101,7 +113,7 @@ router.post('/tourney', requireAuth, (req, res, next) => {
         if (err) {
             res.end(err);
         } else {
-            res.redirect('/bracket8');
+            res.redirect('/bracket8/' + Tourney8._id);
         }
     })
 });
@@ -142,34 +154,34 @@ router.get('/:id', requireAuth, (req, res, next) => {
 });
 //});
 
-/* POST bracket page */
-router.post('/:id', /*requireAuth,*/ (req, res, next) => {
-    try {
-        let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
+// /* POST bracket page */
+// router.post('/:id', /*requireAuth,*/ (req, res, next) => {
+//     try {
+//         let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
 
-        Tourney8.update({ _id:id}, {
-            $push: {
-                "round2": [{ 
-                    "pair3": [{ 
-                        "playerName": req.body.name, 
-                        "Wins": req.body.win, 
-                        "Losses": req.body.loss 
-                    }] 
-                }]
-            }
-        },{upsert:"true"},function(err){
-            if (err){
-               res.json({"text":"ERRROR"});                 
-            } else{            
-                res.json({"text":"HI"});
-            }
-        })
-    }
-    catch (err) {
-        console.log(err);
-    }
+//         Tourney8.update({ _id:id}, {
+//             $push: {
+//                 "round2": [{ 
+//                     "pair3": [{ 
+//                         "playerName": req.body.name, 
+//                         "Wins": req.body.win, 
+//                         "Losses": req.body.loss 
+//                     }] 
+//                 }]
+//             }
+//         },{upsert:"true"},function(err){
+//             if (err){
+//                res.json({"text":"ERRROR"});                 
+//             } else{            
+//                 res.json({"text":"HI"});
+//             }
+//         })
+//     }
+//     catch (err) {
+//         console.log(err);
+//     }
 
 
-});
+// });
 
 module.exports = router;
