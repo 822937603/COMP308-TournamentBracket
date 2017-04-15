@@ -15,7 +15,12 @@ function requireAuth(req, res, next) {
 }
 
 router.get('/', (req, res, next) => {
-    res.render('content/bracket');
+    res.render('content/bracket',{
+        title: 'Tournament Bracket',
+        username: req.user ? req.user.username : '',
+        Tourney: newTourney    
+    })
+
 })
 
 /* GET tourney page. */
@@ -26,8 +31,17 @@ router.get('/tourney', requireAuth, (req, res, next) => {
     });
 });
 
+/* GET tourney page. */
+router.get('/fourman', requireAuth, (req, res, next) => {
+    res.render('content/fourman', {
+        title: '4Man Tourney',
+        username: req.user ? req.user.username : ''
+    });
+});
+
+
 /* POST Tourney Page - Process the tourney page */
-router.post('/tourney', requireAuth, (req, res, next) => {
+router.post('/fourman', requireAuth, (req, res, next) => {
     // let newTourney = Tourney4({
     //    "player1": req.body.player1,
     //    "player2": req.body.player2,
@@ -78,7 +92,8 @@ router.post('/tourney', requireAuth, (req, res, next) => {
         if (err) {
             res.end(err);
         } else {
-            res.redirect('/bracket/:id');
+            res.redirect('/bracket/'+ Tourney4._id);
+            // res.json({test: "works"});
         }
     })
 });
@@ -117,36 +132,36 @@ router.get('/:id', requireAuth, (req, res, next) => {
         res.redirect('/errors/404');
     }
 });
-//});
-
-/* POST bracket page */
-router.post('/:id', /*requireAuth,*/ (req, res, next) => {
-    try {
-        let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
-
-        Tourney4.update({ _id:id}, {
-            $push: {
-                "round2": [{ 
-                    "pair3": [{ 
-                        "playerName": req.body.name, 
-                        "Wins": req.body.win, 
-                        "Losses": req.body.loss 
-                    }] 
-                }]
-            }
-        },{upsert:"true"},function(err){
-            if (err){
-               res.json({"text":"ERRROR"});                 
-            } else{            
-                res.json({"text":"HI"});
-            }
-        })
-    }
-    catch (err) {
-        console.log(err);
-    }
 
 
-});
+// /* POST bracket page */
+// router.post('/:id', requireAuth, (req, res, next) => {
+//     try {
+//         let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
+
+//         Tourney4.update({ _id:id}, {
+//             $push: {
+//                 "round2": [{ 
+//                     "pair3": [{ 
+//                         "playerName": req.body.name, 
+//                         "Wins": req.body.win, 
+//                         "Losses": req.body.loss 
+//                     }] 
+//                 }]
+//             }
+//         },{upsert:"true"},function(err){
+//             if (err){
+//                res.json({"text":"ERRROR"});                 
+//             } else{            
+//                 res.json({"text":"HI"});
+//             }
+//         })
+//     }
+//     catch (err) {
+//         console.log(err);
+//     }
+
+
+// });
 
 module.exports = router;
