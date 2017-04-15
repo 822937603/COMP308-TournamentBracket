@@ -9,7 +9,7 @@
                 <div class="bracket-game" name = "pair1">
                  <form method = "post">
                     <div class="player top win" name = "player1">
-                            <input type ="text" id = "round1player1winner" value = "<%= Tourney.rounds[0].round1[0].pair1[0].playerName %>" readonly> </label>
+                            <input type ="text" id = "round1player1winner" size="8" value = "<%= Tourney.rounds[0].round1[0].pair1[0].playerName %>" readonly> </label>
                             <input type="button" name = "inputbox1" id = "player1id" class="btn btn-primary" value =">"> </input>
 
                             <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[0].playerName" style= "visibility: hidden" size ="1">
@@ -18,7 +18,7 @@
                             <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">
                     </div>
                     <div class="player bot loss" name = "player2">
-                            <input type = "text" id = "round1player2winner" value = "<%= Tourney.rounds[0].round1[0].pair1[1].playerName %>" readonly> </input>
+                            <input type = "text" id = "round1player2winner" size="8" value = "<%= Tourney.rounds[0].round1[0].pair1[1].playerName %>" readonly> </input>
                             <input type="button" name = "inputbox2" id = "player2id" class="btn btn-primary" value =">"> </input>
 
                             <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden" size ="1">
@@ -31,7 +31,7 @@
 
                 <div class="bracket-game cont" name= "pair2">
                     <div class="player top loss" name = "player3">
-                            <input type = "text" id = "round1player3winner" value = "<%= Tourney.rounds[0].round1[0].pair2[0].playerName %>" readonly> </input>
+                            <input type = "text" id = "round1player3winner" size="8" value = "<%= Tourney.rounds[0].round1[0].pair2[0].playerName %>" readonly> </input>
                             <input type="button" name = "inputbox3" id = "player3id" class="btn btn-primary" value =">"> </input>
 
                             <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden" size ="1">
@@ -40,7 +40,7 @@
                             <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">
                     </div>
                     <div class="player bot win" name = "player4">
-                            <input type = "text" id = "round1player4winner" value = "<%= Tourney.rounds[0].round1[0].pair2[1].playerName %>" readonly> </input>
+                            <input type = "text" id = "round1player4winner" size="8" value = "<%= Tourney.rounds[0].round1[0].pair2[1].playerName %>" readonly> </input>
                             <input type="button" name = "inputbox4" id = "player4id" class="btn btn-primary" value =">"> </input>
 
                             <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden" size ="1">
@@ -64,16 +64,10 @@
             <div class="round r-of-2" name = "round2">
                 <div class="bracket-game">
                     <div class="player top loss">
-                            <input type = "text" class = "input-text" name = "round2name1" id = "round2name1" placeholder = "" value = "" readonly>
-                        <div class="score">
-                            2
-                        </div>
+                            <input type = "text" class = "input-text" size="8" name = "round2name1" id = "round2name1" placeholder = "" value = "" readonly>
                     </div>
                     <div class="player bot win">
-                            <input type = "text" class = "input-text" name = "round2name2" id = "round2name2" placeholder = "" value = "" readonly>
-                        <div class="score">
-                            3
-                        </div>
+                            <input type = "text" class = "input-text" size="8" name = "round2name2" id = "round2name2" placeholder = "" value = "" readonly>
                     </div>
                 </div>
             </div>
