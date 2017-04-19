@@ -167,21 +167,18 @@
                 <div class="bracket-game8" name = "pair7">
                     <div class="player top loss" name = "player13">
                         <input type = "text" class = "input-text" size="8" name = "round3name1" id = "round3name1" placeholder = "" value = "" readonly>
-                        <div class="score">
-                        
-                        </div>
+                        <input type="button" name = "inputbox13" id = "player13id" class="btn btn-primary" value =">"> </input>
                     </div>
                     <div class="player bot win" name = "player14">
                         <input type = "text" class = "input-text"  size="8" name = "round3name2" id = "round3name2" placeholder = "" value = "" readonly>
-                        <div class="score">
-                            
-                        </div>
+                        <input type="button" name = "inputbox14" id = "player14id" class="btn btn-primary" value =">"> </input>
                     </div>
                 </div>
-</div>
-
+            </div>
+                 <i class="fa fa-trophy fa-lg" aria-hidden="true"> Winner </i>
+                 <input type ="text" class = "input-text" size="8" name = "winner" id = "winner" placeholder = "" value = "" readonly> </input>
+            </div>
         </div>
-    </div>
 
 
     <script>
@@ -236,6 +233,14 @@
 
         document.getElementById('player12id').onclick = function() {
         document.getElementById('round3name2').value = document.getElementById('round2name4').value;    
+        }
+
+        document.getElementById('player13id').onclick = function() {
+        document.getElementById('winner').value = document.getElementById('round3name1').value;    
+        }
+
+        document.getElementById('player14id').onclick = function() {
+        document.getElementById('winner').value = document.getElementById('round3name2').value;    
         }
      }
     </script>
