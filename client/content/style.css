@@ -1,7 +1,8 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image:url("../assets/images/nebula.jpg");
+  background-color: #bfb5b2
+  /*background-image:url("../assets/images/nebula.jpg");*/
 }
 
 a {
@@ -66,10 +67,10 @@ a {
   background: #EEE;
 }
 .player.win {
-  background-color: #B8F2B8;
+  background-color: #bfb5b2;
 }
 .player.loss {
-  background-color: #F2B8B8;
+  background-color: #bfb5b2;
 }
 .connectors {
   float: left;

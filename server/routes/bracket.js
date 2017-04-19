@@ -79,7 +79,7 @@ router.post('/fourman', requireAuth, (req, res, next) => {
                     }
                 ]
             }],
-            //'winner1': req.body.player1, 'winner2': req.body.player1, loser1: req.body.player1
+            'winner1': req.body.player1, 'winner2': req.body.player1, loser1: req.body.player1
         }],
         userID: String
     }
@@ -97,6 +97,11 @@ router.post('/fourman', requireAuth, (req, res, next) => {
         }
     })
 });
+
+// router.post('/api/', (req, res, next)=>{
+//     let tourney = req.body.tourney;
+
+// });
 
 /* GET bracket page. */
 router.get('/:id', requireAuth, (req, res, next) => {
@@ -123,7 +128,8 @@ router.get('/:id', requireAuth, (req, res, next) => {
                 res.render('content/bracket', {
                     title: 'Tournament Bracket',
                     username: req.user ? req.user.username : '',
-                    Tourney: newTourney
+                    Tourney: newTourney,
+                    TourneyString: JSON.stringify(newTourney)
                 });
             }
         });
@@ -131,6 +137,35 @@ router.get('/:id', requireAuth, (req, res, next) => {
         console.log(err);
         res.redirect('/errors/404');
     }
+});
+
+router.post('/:id', requireAuth, (req, res, next) => {
+    try {
+        console.log(req.params.id);
+        let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
+
+        Tourney4.findById(id, (err, newTourney) => {
+            if (err){
+                res.end(error);
+            } else {
+                newTourney.rounds[0].round2[0].pair3[0].playerName= req.body.round2name1;
+                newTourney.rounds[0].round2[0].pair3[1].playerName= req.body.round2name2;
+                newTourney.rounds[0].winner1= req.body.winner;
+                Tourney4.update({_id:id}, newTourney, function (err) {
+                    if (err) {
+                        res.end(err);
+                    }
+                    else{
+                        res.redirect('/bracket/'+ newTourney._id);
+                    }
+                })   
+            }
+            })
+
+            } catch (err) {
+                console.log(err);
+                res.redirect('/errors/404');
+            }
 });
 
 
