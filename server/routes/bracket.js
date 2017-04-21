@@ -8,6 +8,10 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+// define the user model
+let UserModel = require('../models/users');
+let User = UserModel.User; // alias for User
+
 let Tourney4 = require('../models/tourney4');
 //let Tournament4  = Tourney4.Tournament4;
 
@@ -20,13 +24,16 @@ function requireAuth(req, res, next) {
     next();
 }
 
-router.get('/', (req, res, next) => {
-    res.render('content/bracket',{
+router.get('/viewbracket', (req, res, next) => {
+    Tourney.find({userID:req.user.username},
+    (err, tournament) => {
+        res.render('content/viewbracket',{
         title: 'Tournament Bracket',
         username: req.user ? req.user.username : '',
-        Tourney: newTourney    
+        Tourney: tournament    
     })
-
+})
+   
 })
 
 /* GET tourney page. */
@@ -37,24 +44,22 @@ router.get('/tourney', requireAuth, (req, res, next) => {
     });
 });
 
+
 /* GET tourney page. */
 router.get('/fourman', requireAuth, (req, res, next) => {
-    res.render('content/fourman', {
-        title: '4Man Tourney',
-        username: req.user ? req.user.username : ''
-    });
+    User.find({
+        username: req.user.username
+    }, (err, user) => {
+        res.render('content/fourman', {
+            title: '4Man Tourney',
+            username: req.user ? req.user.username : '',
+        });
+    })
 });
-
 
 /* POST Tourney Page - Process the tourney page */
 router.post('/fourman', requireAuth, (req, res, next) => {
-    // let newTourney = Tourney4({
-    //    "player1": req.body.player1,
-    //    "player2": req.body.player2,
-    //    "player3": req.body.player3,
-    //    "player4": req.body.player4
-    // });
-    //console.log(req.body.player4);
+
     let object = {
         'rounds': [{
             'round1': [{
@@ -85,9 +90,9 @@ router.post('/fourman', requireAuth, (req, res, next) => {
                     }
                 ]
             }],
-            'winner1': req.body.player1, 'winner2': req.body.player1, loser1: req.body.player1
+            'winner1': req.body.player1, 'status': req.body.status, 'title': req.body.fourManTitle
         }],
-        userID: String
+        'userID': req.body.id
     }
     //console.log(JSON.stringify(object))
     let newTourney = Tourney4(object)
@@ -173,7 +178,6 @@ router.post('/:id', requireAuth, (req, res, next) => {
                 res.redirect('/errors/404');
             }
 });
-
 
 // /* POST bracket page */
 // router.post('/:id', requireAuth, (req, res, next) => {

@@ -8,6 +8,10 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+// define the user model
+let UserModel = require('../models/users');
+let User = UserModel.User; // alias for User
+
 let Tourney8 = require('../models/tourney8');
 
 //check if authenticated
@@ -98,7 +102,8 @@ router.post('/eightman', requireAuth, (req, res, next) => {
                     }
                 ]
             }],
-                 'pair7': [
+            'round3': [{
+                'pair7': [
                     {
                         'playerName': req.body.player13, Wins: 0, Losses: 0
                     },
@@ -106,11 +111,12 @@ router.post('/eightman', requireAuth, (req, res, next) => {
                         'playerName': req.body.player14, Wins: 0, Losses: 0
                     }
                 ]
-            //'winner1': req.body.player1, 'winner2': req.body.player1, loser1: req.body.player1
+            }],
+            'winner1': req.body.player1, 'status': req.body.status, 'title': req.body.eightManTitle
         }],
         userID: String
     }
-    console.log(JSON.stringify(object))
+    // console.log(JSON.stringify(object))
     let newTourney8 = Tourney8(object)
     //Tourney = newTourney;
 
@@ -149,7 +155,8 @@ router.get('/:id', requireAuth, (req, res, next) => {
                 res.render('content/bracket8', {
                     title: 'Tournament Bracket',
                     username: req.user ? req.user.username : '',
-                    Tourney8: newTourney8
+                    Tourney8: newTourney8,
+                    TourneyString: JSON.stringify(newTourney8)
                 });
             }
         });
@@ -158,6 +165,40 @@ router.get('/:id', requireAuth, (req, res, next) => {
         res.redirect('/errors/404');
     }
 });
+
+router.post('/:id', requireAuth, (req, res, next) => {
+    try {
+        console.log(req.params.id);
+        let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
+
+        Tourney8.findById(id, (err, newTourney8) => {
+            if (err){
+                res.end(error);
+            } else {
+                newTourney8.rounds[0].round2[0].pair5[0].playerName= req.body.round2name1;
+                newTourney8.rounds[0].round2[0].pair5[1].playerName= req.body.round2name2;
+                newTourney8.rounds[0].round2[1].pair6[0].playerName= req.body.round2name3;
+                newTourney8.rounds[0].round2[1].pair6[1].playerName= req.body.round2name4;
+                newTourney8.rounds[0].round3[0].pair7[0].playerName= req.body.round3name1;
+                newTourney8.rounds[0].round3[0].pair7[1].playerName= req.body.round3name2;
+                newTourney8.rounds[0].winner1= req.body.winner;
+                Tourney8.update({_id:id}, newTourney, function (err) {
+                    if (err) {
+                        res.end(err);
+                    }
+                    else{
+                        res.redirect('/bracket/'+ newTourney8._id);
+                    }
+                })   
+            }
+            })
+
+            } catch (err) {
+                console.log(err);
+                res.redirect('/errors/404');
+            }
+});
+
 //});
 
 // /* POST bracket page */

@@ -22,7 +22,7 @@ let Tourney4Schema = new Schema({
         round2: [{
             pair3: [Tourney4PairSchema]
         }],
-        winner1: String, winner2: String, loser1: String
+        winner1: String, status: String, title: String
     }],
     userID: String
 },
