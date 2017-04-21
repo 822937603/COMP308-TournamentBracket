@@ -1,3 +1,9 @@
+/*
+  File Name: users.js
+  Website Name: http://comp308-tournamentbracket.herokuapp.com/
+  Description: database schema for registered users
+*/
+
 // require these modules for our user model
 let mongoose = require("mongoose");
 let Schema = mongoose.Schema;

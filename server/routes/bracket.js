@@ -1,3 +1,9 @@
+/*
+  File Name: bracket.js
+  Website Name: http://comp308-tournamentbracket.herokuapp.com/
+  Description: routes to handle the 4 bracket page
+*/
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');

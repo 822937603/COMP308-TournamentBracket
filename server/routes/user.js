@@ -1,3 +1,9 @@
+/*
+  File Name: users.js
+  Website Name: http://comp308-tournamentbracket.herokuapp.com/
+  Description: routes for the user registerations
+*/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();

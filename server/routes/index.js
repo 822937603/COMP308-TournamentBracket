@@ -1,3 +1,9 @@
+/*
+  File Name: index.js
+  Website Name: http://comp308-tournamentbracket.herokuapp.com/
+  Description: routes to handle the homepage
+*/
+
 let express = require('express');
 let router = express.Router();
 

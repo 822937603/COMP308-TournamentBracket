@@ -1,3 +1,9 @@
+/*
+  File Name: bracket8.js
+  Website Name: http://comp308-tournamentbracket.herokuapp.com/
+  Description: routes to handle the 8 man tournament
+*/
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');

@@ -1,3 +1,9 @@
+/*
+  File Name: tourney8.js
+  Website Name: http://comp308-tournamentbracket.herokuapp.com/
+  Description: database schema for a 8 man tournament
+*/
+
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
