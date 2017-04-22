@@ -1,7 +1,16 @@
+<!--
+  File Name: viewbracket4.ejs
+  Website Name: http://comp308-tournamentbracket.herokuapp.com/
+  Description: page shows a list of completed 4 man Tournaments 
+-->
+
 <% include ../partials/header.ejs %>
 
 <div> 
-    <%= Tourney %>
-</div
+    <% Tourney.map ( (t) => { %>
+        <a href="/bracket/<%= t._id %>" name="title"> <%= t.rounds[0].title %></a>
+        <br>
+    <% }) %>
+</div>
 
 <% include ../partials/footer.ejs %>

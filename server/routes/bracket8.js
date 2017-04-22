@@ -23,11 +23,25 @@ function requireAuth(req, res, next) {
 }
 
 router.get('/', (req, res, next) => {
-    res.render('content/bracket8', {
-        title: 'Tournamen Bracket',
-        username: req.user ? req.user.username : '',
-        Tourney: newTourney   
-    });
+    if (req.user !== undefined) {
+        Tourney8.find({ userID: req.user.username },
+            (err, newTourney) => {
+                res.render('content/viewbracket8', {
+                    title: 'Tournament Bracket 8',
+                    username: req.user ? req.user.username : '',
+                    Tourney8: newTourney
+                })
+            })
+    } else {
+        Tourney8.find({},
+            (err, newTourney) => {
+                res.render('content/viewbracket8', {
+                    title: 'Tournament Bracket 8',
+                    username: req.user ? req.user.username : '',
+                    Tourney8: newTourney
+                })
+            })
+    }
 })
 
 /* GET tourney page. */
@@ -74,7 +88,7 @@ router.post('/eightman', requireAuth, (req, res, next) => {
                     {
                         'playerName': req.body.player6, Wins: 0, Losses: 0
                     }
-                ],   
+                ],
                 'pair4': [
                     {
                         'playerName': req.body.player7, Wins: 0, Losses: 0
@@ -131,7 +145,7 @@ router.post('/eightman', requireAuth, (req, res, next) => {
 });
 
 /* GET bracket page. */
-router.get('/:id', requireAuth, (req, res, next) => {
+router.get('/:id', (req, res, next) => {
     /* res.render('content/bracket', {
          title: 'Tournament Bracket',
          username: req.user ? req.user.username : '',
@@ -166,37 +180,37 @@ router.get('/:id', requireAuth, (req, res, next) => {
     }
 });
 
-router.post('/:id', requireAuth, (req, res, next) => {
+router.post('/:id', (req, res, next) => {
     try {
         console.log(req.params.id);
         let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
 
         Tourney8.findById(id, (err, newTourney8) => {
-            if (err){
+            if (err) {
                 res.end(error);
             } else {
-                newTourney8.rounds[0].round2[0].pair5[0].playerName= req.body.round2name1;
-                newTourney8.rounds[0].round2[0].pair5[1].playerName= req.body.round2name2;
-                newTourney8.rounds[0].round2[1].pair6[0].playerName= req.body.round2name3;
-                newTourney8.rounds[0].round2[1].pair6[1].playerName= req.body.round2name4;
-                newTourney8.rounds[0].round3[0].pair7[0].playerName= req.body.round3name1;
-                newTourney8.rounds[0].round3[0].pair7[1].playerName= req.body.round3name2;
-                newTourney8.rounds[0].winner1= req.body.winner;
-                Tourney8.update({_id:id}, newTourney, function (err) {
+                newTourney8.rounds[0].round2[0].pair5[0].playerName = req.body.round2name1;
+                newTourney8.rounds[0].round2[0].pair5[1].playerName = req.body.round2name2;
+                newTourney8.rounds[0].round2[0].pair6[0].playerName = req.body.round2name3;
+                newTourney8.rounds[0].round2[0].pair6[1].playerName = req.body.round2name4;
+                newTourney8.rounds[0].round3[0].pair7[0].playerName = req.body.round3name1;
+                newTourney8.rounds[0].round3[0].pair7[1].playerName = req.body.round3name2;
+                newTourney8.rounds[0].winner1 = req.body.winner;
+                Tourney8.update({ _id: id }, newTourney8, function (err) {
                     if (err) {
                         res.end(err);
                     }
-                    else{
-                        res.redirect('/bracket/'+ newTourney8._id);
+                    else {
+                        res.redirect('/bracket8/' + newTourney8._id);
                     }
-                })   
+                })
             }
-            })
+        })
 
-            } catch (err) {
-                console.log(err);
-                res.redirect('/errors/404');
-            }
+    } catch (err) {
+        console.log(err);
+        res.redirect('/errors/404');
+    }
 });
 
 //});
