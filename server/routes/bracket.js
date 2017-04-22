@@ -24,16 +24,27 @@ function requireAuth(req, res, next) {
     next();
 }
 
-router.get('/viewbracket', (req, res, next) => {
-    Tourney.find({userID:req.user.username},
-    (err, tournament) => {
-        res.render('content/viewbracket',{
-        title: 'Tournament Bracket',
-        username: req.user ? req.user.username : '',
-        Tourney: tournament    
-    })
-})
-   
+router.get('/', (req, res, next) => {
+    if (req.user !== undefined) {
+        Tourney4.find({ userID: req.user.username },
+            (err, tournament) => {
+                res.render('content/viewbracket', {
+                    title: 'Tournament Bracket',
+                    username: req.user ? req.user.username : '',
+                    Tourney: tournament
+                })
+            })
+    } else {
+        Tourney4.find({},
+            (err, tournament) => {
+                res.render('content/viewbracket', {
+                    title: 'Tournament Bracket',
+                    Tourney: tournament,
+                    username: req.user ? req.user.username : ''
+                })
+            })
+    }
+
 })
 
 /* GET tourney page. */
@@ -103,7 +114,7 @@ router.post('/fourman', requireAuth, (req, res, next) => {
         if (err) {
             res.end(err);
         } else {
-            res.redirect('/bracket/'+ Tourney4._id);
+            res.redirect('/bracket/' + Tourney4._id);
             // res.json({test: "works"});
         }
     })
@@ -115,7 +126,7 @@ router.post('/fourman', requireAuth, (req, res, next) => {
 // });
 
 /* GET bracket page. */
-router.get('/:id', requireAuth, (req, res, next) => {
+router.get('/:id', (req, res, next) => {
     /* res.render('content/bracket', {
          title: 'Tournament Bracket',
          username: req.user ? req.user.username : '',
@@ -150,33 +161,33 @@ router.get('/:id', requireAuth, (req, res, next) => {
     }
 });
 
-router.post('/:id', requireAuth, (req, res, next) => {
+router.post('/:id', (req, res, next) => {
     try {
         console.log(req.params.id);
         let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
 
         Tourney4.findById(id, (err, newTourney) => {
-            if (err){
+            if (err) {
                 res.end(error);
             } else {
-                newTourney.rounds[0].round2[0].pair3[0].playerName= req.body.round2name1;
-                newTourney.rounds[0].round2[0].pair3[1].playerName= req.body.round2name2;
-                newTourney.rounds[0].winner1= req.body.winner;
-                Tourney4.update({_id:id}, newTourney, function (err) {
+                newTourney.rounds[0].round2[0].pair3[0].playerName = req.body.round2name1;
+                newTourney.rounds[0].round2[0].pair3[1].playerName = req.body.round2name2;
+                newTourney.rounds[0].winner1 = req.body.winner;
+                Tourney4.update({ _id: id }, newTourney, function (err) {
                     if (err) {
                         res.end(err);
                     }
-                    else{
-                        res.redirect('/bracket/'+ newTourney._id);
+                    else {
+                        res.redirect('/bracket/' + newTourney._id);
                     }
-                })   
+                })
             }
-            })
+        })
 
-            } catch (err) {
-                console.log(err);
-                res.redirect('/errors/404');
-            }
+    } catch (err) {
+        console.log(err);
+        res.redirect('/errors/404');
+    }
 });
 
 // /* POST bracket page */

@@ -44,15 +44,22 @@
                         <% } %>
                     <% } %>
 
-                    <% if(username) { %>
                         <% if(title == "Bracket") { %>
-                        <li class="active"><a href="/bracket/viewbracket"><i class="fa fa-code">
+                        <li class="active"><a href="/bracket"><i class="fa fa-code">
                         </i> Bracket </a></li>
                         <% } else { %>
-                        <li><a href="/bracket/viewbracket"><i class="fa fa-code">
+                        <li><a href="/bracket"><i class="fa fa-code">
                         </i> Bracket </a></li>
                         <% } %>
-                    <% } %>     
+
+                        <% if(title == "Bracket8") { %>
+                        <li class="active"><a href="/bracket8"><i class="fa fa-code">
+                        </i> Bracket8 </a></li>
+                        <% } else { %>
+                        <li><a href="/bracket8"><i class="fa fa-code">
+                        </i> Bracket8 </a></li>
+                        <% } %>    
+                        
                     <% if(username) { %>
                         <li class="navbar-text"> Welcome, <%= username %></li>
                         <li><a href="/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
