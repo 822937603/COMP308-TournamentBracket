@@ -1,5 +1,5 @@
 <!-- 
-    
+
   File Name: bracket.ejs
   Website Name: http://comp308-tournamentbracket.herokuapp.com/
   Description: webpage that takes in the 4 man player information
@@ -9,57 +9,57 @@
 <% include ../partials/header.ejs %>
 
     <div class="panel-body">
-        <div class="col-md-3"></div>
+
         <div class="col-md-10">
-                    <div>
-                        <i class="fa fa-gamepad fa-lg" aria-hidden="true"></i>
-                        <%= Tourney.rounds[0].title %>
-                    </div>
-            <div class="round r-of-4" name = "round1">
-                <div class="bracket-game" name = "pair1">
-                 <form method = "post">
-                    <div class="player top win" name = "player1">
-                            <input type ="text" id = "round1player1winner" name = "round1player1winner" size="8" value = "<%= Tourney.rounds[0].round1[0].pair1[0].playerName %>" readonly> </label>
+            <div>
+                <i class="fa fa-gamepad fa-lg" aria-hidden="true"></i>
+                <%= Tourney.rounds[0].title %>
+            </div>
+            <div class="round r-of-4" name="round1">
+                <div class="bracket-game" name="pair1">
+                    <form method="post">
+                        <div class="player top win" name="player1">
+                            <input type="text" id="round1player1winner" name="round1player1winner" size="8" value="<%= Tourney.rounds[0].round1[0].pair1[0].playerName %>" readonly> </label>
                             <% if (username !== '') { %>
-                            <input type="button" name = "inputbox1" id = "player1id" class="btn btn-primary" value =">"> </input>
-                            <% } %>
-                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[0].playerName" style= "visibility: hidden" size ="1">
-                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden" size ="1">
-                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden" size ="1">
-                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">
-                    </div>
-                    <div class="player bot loss" name = "player2">
-                            <input type = "text" id = "round1player2winner" size="8" value = "<%= Tourney.rounds[0].round1[0].pair1[1].playerName %>" readonly> </input>
+                                <input type="button" name="inputbox1" id="player1id" class="btn btn-primary" value=">"> </input>
+                                <% } %>
+                                    <input class="pretend" name="player" value="Tourney.rounds[0].round1[0].pair1[0].playerName" style="visibility: hidden" size="1">
+                                    <input name="win" value="Tourney.rounds[0].round1[0].pair1[0].Wins" style="visibility: hidden" size="1">
+                                    <input name="loss" value="Tourney.rounds[0].round1[0].pair1[0].Losses" style="visibility: hidden" size="1">
+                                    <input class="pretend" name="tourney" value="Tourney._id" style="visibility: hidden" size="1">
+                        </div>
+                        <div class="player bot loss" name="player2">
+                            <input type="text" id="round1player2winner" size="8" value="<%= Tourney.rounds[0].round1[0].pair1[1].playerName %>" readonly> </input>
                             <% if (username !== '') { %>
-                            <input type="button" name = "inputbox2" id = "player2id" class="btn btn-primary" value =">"> </input>
-                            <% } %>
-                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden" size ="1">
-                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden" size ="1">
-                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden" size ="1">
-                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">     
-                    </div>
+                                <input type="button" name="inputbox2" id="player2id" class="btn btn-primary" value=">"> </input>
+                                <% } %>
+                                    <input class="pretend" name="player" value="Tourney.rounds[0].round1[0].pair1[1]._id" style="visibility: hidden" size="1">
+                                    <input name="win" value="Tourney.rounds[0].round1[0].pair1[0].Wins" style="visibility: hidden" size="1">
+                                    <input name="loss" value="Tourney.rounds[0].round1[0].pair1[0].Losses" style="visibility: hidden" size="1">
+                                    <input class="pretend" name="tourney" value="Tourney._id" style="visibility: hidden" size="1">
+                        </div>
                 </div>
 
-                <div class="bracket-game cont" name= "pair2">
-                    <div class="player top loss" name = "player3">
-                            <input type = "text" id = "round1player3winner" size="8" value = "<%= Tourney.rounds[0].round1[0].pair2[0].playerName %>" readonly> </input>
-                            <% if (username !== '') { %>
-                            <input type="button" name = "inputbox3" id = "player3id" class="btn btn-primary" value =">"> </input>
+                <div class="bracket-game cont" name="pair2">
+                    <div class="player top loss" name="player3">
+                        <input type="text" id="round1player3winner" size="8" value="<%= Tourney.rounds[0].round1[0].pair2[0].playerName %>" readonly> </input>
+                        <% if (username !== '') { %>
+                            <input type="button" name="inputbox3" id="player3id" class="btn btn-primary" value=">"> </input>
                             <% } %>
-                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden" size ="1">
-                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden" size ="1">
-                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden" size ="1">
-                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">
+                                <input class="pretend" name="player" value="Tourney.rounds[0].round1[0].pair1[1]._id" style="visibility: hidden" size="1">
+                                <input name="win" value="Tourney.rounds[0].round1[0].pair1[0].Wins" style="visibility: hidden" size="1">
+                                <input name="loss" value="Tourney.rounds[0].round1[0].pair1[0].Losses" style="visibility: hidden" size="1">
+                                <input class="pretend" name="tourney" value="Tourney._id" style="visibility: hidden" size="1">
                     </div>
-                    <div class="player bot win" name = "player4">
-                            <input type = "text" id = "round1player4winner" size="8" value = "<%= Tourney.rounds[0].round1[0].pair2[1].playerName %>" readonly> </input>
-                            <% if (username !== '') { %>
-                            <input type="button" name = "inputbox4" id = "player4id" class="btn btn-primary" value =">"> </input>
+                    <div class="player bot win" name="player4">
+                        <input type="text" id="round1player4winner" size="8" value="<%= Tourney.rounds[0].round1[0].pair2[1].playerName %>" readonly> </input>
+                        <% if (username !== '') { %>
+                            <input type="button" name="inputbox4" id="player4id" class="btn btn-primary" value=">"> </input>
                             <% } %>
-                            <input class="pretend" name = "player" value= "Tourney.rounds[0].round1[0].pair1[1]._id" style= "visibility: hidden" size ="1">
-                            <input name = "win" value = "Tourney.rounds[0].round1[0].pair1[0].Wins" style= "visibility: hidden" size ="1">
-                            <input name = "loss" value = "Tourney.rounds[0].round1[0].pair1[0].Losses" style= "visibility: hidden" size ="1">
-                            <input class="pretend" name = "tourney" value= "Tourney._id" style= "visibility: hidden" size ="1">
+                                <input class="pretend" name="player" value="Tourney.rounds[0].round1[0].pair1[1]._id" style="visibility: hidden" size="1">
+                                <input name="win" value="Tourney.rounds[0].round1[0].pair1[0].Wins" style="visibility: hidden" size="1">
+                                <input name="loss" value="Tourney.rounds[0].round1[0].pair1[0].Losses" style="visibility: hidden" size="1">
+                                <input class="pretend" name="tourney" value="Tourney._id" style="visibility: hidden" size="1">
                     </div>
                 </div>
             </div>
@@ -74,64 +74,61 @@
                 <div class="next-line"></div>
                 <div class="clear"></div>
             </div>
-            <div class="round r-of-2" name = "round2">
+            <div class="round r-of-2" name="round2">
                 <div class="bracket-game">
                     <div class="player top loss">
-                            <input type = "text" class = "input-text" size="8" name = "round2name1" id = "round2name1" placeholder = "" value = "<%= Tourney.rounds[0].round2[0].pair3[0].playerName %>" readonly></input>
-                             <% if (username !== '') { %>
-                            <input type="button" name = "inputbox5" id = "player5id" class="btn btn-primary" value =">"> </input>
+                        <input type="text" class="input-text" size="8" name="round2name1" id="round2name1" placeholder="" value="<%= Tourney.rounds[0].round2[0].pair3[0].playerName %>" readonly></input>
+                        <% if (username !== '') { %>
+                            <input type="button" name="inputbox5" id="player5id" class="btn btn-primary" value=">"> </input>
                             <% } %>
                     </div>
                     <div class="player bot win">
-                            <input type = "text" class = "input-text" size="8" name = "round2name2" id = "round2name2" placeholder = "" value = "<%= Tourney.rounds[0].round2[0].pair3[1].playerName %>" readonly></input>
-                             <% if (username !== '') { %>
-                            <input type="button" name = "inputbox6" id = "player6id" class="btn btn-primary" value =">"> </input>
+                        <input type="text" class="input-text" size="8" name="round2name2" id="round2name2" placeholder="" value="<%= Tourney.rounds[0].round2[0].pair3[1].playerName %>" readonly></input>
+                        <% if (username !== '') { %>
+                            <input type="button" name="inputbox6" id="player6id" class="btn btn-primary" value=">"> </input>
                             <% } %>
                     </div>
                 </div>
             </div>
-                 <i class="fa fa-trophy fa-lg" aria-hidden="true"> Winner </i>
-                 <input type ="text" class = "input-text" size="8" name = "winner" id = "winner" placeholder = "" value = "<%= Tourney.rounds[0].winner1 %>" readonly> </input>
+            <i class="fa fa-trophy fa-lg" aria-hidden="true"> Winner </i>
+            <input type="text" class="input-text" size="8" name="winner" id="winner" placeholder="" value="<%= Tourney.rounds[0].winner1 %>" readonly> </input>
         </div>
     </div>
-                 <% if (username !== '') { %>
-                 <input type = "submit" size = "8" name = "submit" id="submit"></input>
-                 <input type = "hidden" name = "tourney_id" value="<%= Tourney._id %>">
-                 <% } %>
-    <div> 
-    </div>
-    </form>
+    <% if (username !== '') { %>
+        <input type="submit" size="8" name="submit" id="submit" value="Save"></input>
+        <input type="hidden" name="tourney_id" value="<%= Tourney._id %>">
+        <% } %>
+            <div>
+            </div>
+            </form>
 
-<script>
-    window.onload = function () {
+            <script>
+                window.onload = function() {
 
-        document.getElementById('player1id').onclick = function() {
-        document.getElementById('round2name1').value = document.getElementById('round1player1winner').value;
-        }
+                    document.getElementById('player1id').onclick = function() {
+                        document.getElementById('round2name1').value = document.getElementById('round1player1winner').value;
+                    }
 
-           
-        document.getElementById('player2id').onclick = function() {
-        document.getElementById('round2name1').value = document.getElementById('round1player2winner').value;
-        }
+                    document.getElementById('player2id').onclick = function() {
+                        document.getElementById('round2name1').value = document.getElementById('round1player2winner').value;
+                    }
 
-        
-        document.getElementById('player3id').onclick = function() {
-        document.getElementById('round2name2').value = document.getElementById('round1player3winner').value;
-        }
+                    document.getElementById('player3id').onclick = function() {
+                        document.getElementById('round2name2').value = document.getElementById('round1player3winner').value;
+                    }
 
-        
-        document.getElementById('player4id').onclick = function() {
-        document.getElementById('round2name2').value = document.getElementById('round1player4winner').value;   
-        }
+                    document.getElementById('player4id').onclick = function() {
+                        document.getElementById('round2name2').value = document.getElementById('round1player4winner').value;
+                    }
 
-        document.getElementById('player5id').onclick = function () {
-        document.getElementById('winner').value = document.getElementById('round2name1').value;
-        }
+                    document.getElementById('player5id').onclick = function() {
+                        document.getElementById('winner').value = document.getElementById('round2name1').value;
+                    }
 
-        document.getElementById('player6id').onclick = function () {
-        document.getElementById('winner').value = document.getElementById('round2name2').value;
-        }
-    }
-</script>
-   
-<% include ../partials/footer.ejs %>
+                    document.getElementById('player6id').onclick = function() {
+                        document.getElementById('winner').value = document.getElementById('round2name2').value;
+                    }
+                }
+            </script>
+
+            <% include ../partials/footer.ejs %>

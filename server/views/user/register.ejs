@@ -14,9 +14,14 @@
     <% if (messages.length > 0) { %>
         <div class="alert alert-danger"><%= messages %></div>
       <% } %>
+      <div class="container">
         <div class="row">
-            <div class="col-md-offset-4 col-md-4">
-                <h1>User Registration</h1>
+
+            <div class="col-md-offset-2 col-md-4">
+            
+            <div class= "jumbotron">
+                <h2><center>User Registration</center></h2>
+                <hr>
                 <form method="post">
                     <fieldset class="form-group">
                         <label for="email">Email: *</label>
@@ -40,5 +45,7 @@
             </div>
         </div>
   </div>
+</div>
+</div>
 </div>
 <% include ../partials/footer.ejs %> 

@@ -7,9 +7,12 @@
 
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #bfb5b2
-  /*background-image:url("../assets/images/nebula.jpg");*/
+  background-color: #bfb5b2;
+  font-family: 'Roboto', sans-serif;
+}
+
+div.panel {
+    background-color: #bfb5b2
 }
 
 a {
@@ -171,4 +174,19 @@ a {
   background-color: #e26414;
   font-size: 17px;
 
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+div.player.top{
+  background-color: grey;
+}
+div.player.bot {
+  background-color: grey;
 }

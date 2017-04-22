@@ -4,13 +4,33 @@
   Description: page shows a list of completed 4 man Tournaments 
 -->
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
 <% include ../partials/header.ejs %>
 
-<div> 
+<div class="container">
+ <div class= "jumbotron">
+  <h1><center>Completed 4-Man Tournaments</center></h1>          
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Titles</th>
+      </tr>
+    </thead>
     <% Tourney.map ( (t) => { %>
-        <a href="/bracket/<%= t._id %>" name="title"> <%= t.rounds[0].title %></a>
-        <br>
-    <% }) %>
+    <tbody>
+      <tr>
+        <td>  
+            <a href="/bracket/<%= t._id %>" name="title"> <%= t.rounds[0].title %></a>
+            <br>
+        </td>
+      </tr>
+    </tbody>
+     <% }) %>
+  </table>
 </div>
+</div>
+    
 
 <% include ../partials/footer.ejs %>
