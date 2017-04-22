@@ -37,8 +37,8 @@ router.get('/', (req, res, next) => {
             (err, newTourney) => {
                 res.render('content/viewbracket8', {
                     title: 'Tournament Bracket 8',
-                    username: req.user ? req.user.username : '',
-                    Tourney8: newTourney
+                    Tourney8: newTourney,
+                    username: req.user ? req.user.username : ''
                 })
             })
     }
@@ -128,7 +128,7 @@ router.post('/eightman', requireAuth, (req, res, next) => {
             }],
             'winner1': req.body.player1, 'status': req.body.status, 'title': req.body.eightManTitle
         }],
-        userID: String
+        userID: req.body.id
     }
     // console.log(JSON.stringify(object))
     let newTourney8 = Tourney8(object)
